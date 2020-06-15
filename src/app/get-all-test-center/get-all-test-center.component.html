@@ -1,0 +1,36 @@
+<div class="alert alert-success" *ngIf='success'>
+        {{success}}</div>
+    <div class="alert alert-danger" *ngIf='failure'>
+        {{failure}}</div>
+    
+<div class="container offset-3" style="margin-top: 60px;">
+        <div class="col-md-10 float-left">
+            <table class="table table-bordered table-hover">
+                <thead style="background-color: rgb(235, 227, 234);">
+                    <tr>
+                        <th>Tets Id</th>
+                        <th>Center Id </th>
+                        <th>Test Name</th>
+                        <th>Delete</th>
+                        <th>Update Test</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let test of tests '>
+                        <td>{{test.testId}}</td>
+                        <td>{{test.centerId}}</td>
+                        <td>{{test.testName}}</td>
+                        
+                        <td>
+                            <button class="btn btn-outline-danger float-right btn-block" (click) = 'removeTest(test)' >Delete</button>
+                        </td>
+
+                        <td>
+                            <button class="btn btn-outline-danger float-right btn-block" (click) = 'updateTest(test)' >Update Test</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

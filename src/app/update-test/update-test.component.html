@@ -1,0 +1,76 @@
+<div class="alert alert-success" *ngIf='success'>
+        {{success}}</div>
+    <div class="alert alert-danger" *ngIf='failure'>
+        {{failure}}</div>
+    
+    
+    <div class="background" style="margin-top: -50px;"><br><br><br>
+        <div class="card col-md-4 " style="margin-top: 50px;margin-left: 65%;width: 450px;">
+    
+            <div class="card-body">
+                <form #testData='ngForm' (ngSubmit)='updateTest(testData)'>
+                       
+                        <div class="form-group">
+                                <!-- <label for="centerId">Center Id</label> -->
+                                <input type="text" name="testId" id="testId" value="testId" #testId='ngModel' [(ngModel)]='testId1'  class="form-control" required
+                                    placeholder="Enter test Id"  minlength="6" maxlength="6" hidden>
+                            </div>
+                            <div class="form-group">
+                                    <!-- <label for="centerId">Center Id</label> -->
+                                    <input type="text" name="centerId" id="centerId" value="centerId" #centerId='ngModel' [(ngModel)]='centerId1'  class="form-control" required
+                                        placeholder="Enter Center Id" pattern="^(?=.*[A-Z])(?=.*[0-9]).{6,6}$" minlength="6" maxlength="6" >
+                                    <div class="text-danger" *ngIf = '(centerId.dirty || centerId.touched) && centerId.invalid' hidden>
+                                        <div *ngIf = 'centerId.errors.required'>
+                                            *This Field Mandatory
+                                        </div>
+    
+                                        <div *ngIf = 'centerId.errors.minlength'>
+                                            *Six digit Id Must be Required
+                                        </div>
+    
+                                        <div *ngIf = 'centerId.errors.pattern'>
+                                            *Only Alpha Numericals Allowed (for ex. ABC123).
+                                            Use alphabates in Upper Case Only!!! 
+                                        </div>
+                                    </div>
+                                </div>
+    
+
+                            <div class="form-group">
+                                    <label for="testName">Test Name</label>
+                                    <input type="testName" name="testName" id="testName" value="testName" #testName='ngModel' [(ngModel)]='testName1' class="form-control" required
+                                        placeholder="Enter The Test Name" minlength="2" maxlength="20" pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$">
+                                        <div class="text-danger" *ngIf = '(testName.dirty || testName.touched) && testName.invalid'>
+                                            <div *ngIf = 'testName.errors.required'>
+                                                *This Field Mandatory
+                                            </div>
+
+                                            <div *ngIf = 'testName.errors.pattern'>
+                                                    *Enter Only Alphabates
+                                                </div>
+
+                                                <div *ngIf = '(testName.errors.minlength || testName.errors.maxlength)'>
+                                                        *Minimum length is 2 
+                                                        maximum length is 20
+                                                </div>
+
+                                                <div *ngIf = 'testName.errors.maxlength == 20'>
+                                                        asdkasdj
+                                                    </div>
+                                        </div>
+                             </div>
+
+                             <div class="form-group">
+                                    <button type="submit" class="btn btn-primary float-right "   >
+                                    Update
+                                </button>
+                                </div>
+                    </form>
+             </div>
+        </div>
+    </div>
+
+
+
+    
+               

@@ -1,0 +1,43 @@
+<br>
+<h1 style="color: #3f93d8; margin-left: 38%; margin-top: 10px; margin-bottom: -10px;">All Appointments</h1>
+
+<div class="container offset-3" style="margin-top: 60px;  margin-left: 18%;">
+        <div class="col-md-10 float-left">
+            <table class="table table-bordered table-hover">
+                <thead style="background-color: #f3f3f3">
+                    <tr>
+                        <th>Appointment Id</th>
+                        <th>Center Id </th>
+                        <th>Center Name</th>
+                        <th>Test Id</th>
+                        <th>Test Name </th>
+                        <th>User Id</th>
+                        <th>User Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Approve</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let appointment of allAppointment '>
+                        <td>{{appointment.appointmentId}}</td>
+                        <td>{{appointment.centerId}}</td>
+                        <td>{{appointment.centerName}}</td>
+                        <td>{{appointment.testId}}</td>
+                        <td>{{appointment.testName}}</td>
+                        <td>{{appointment.userId}}</td>
+                        <td>{{appointment.userName}}</td>
+                        <td>{{appointment.date}}</td>
+                        <td>{{appointment.time}}</td>
+                        <td>{{appointment.status}}</td>
+    
+                        <td>
+                            <button class="btn btn-outline-info float-right " (click)='approveAppointments(appointment)' >Approve</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

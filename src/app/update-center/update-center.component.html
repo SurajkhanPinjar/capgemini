@@ -1,0 +1,69 @@
+<div class="alert alert-success" *ngIf='success'>
+        {{success}}</div>
+    <div class="alert alert-danger" *ngIf='failure'>
+        {{failure}}</div>
+    
+    
+    <div class="background" style="margin-top: -50px;"><br><br><br>
+        <div class="card col-md-4 " style="margin-top: 50px;margin-left: 65%;width: 450px;">
+    
+            <div class="card-body">
+                <form #updateCenterSubmit='ngForm' (ngSubmit)='updateCenter(updateCenterSubmit)'>
+                        <div class="form-group">
+                                <!-- <label for="centerId">Center Id</label> -->
+                                <input type="text" name="centerId" id="centerId" value="centerId" #centerId='ngModel' [(ngModel)]='centerId1' class="form-control" required
+                                    placeholder="Enter Center Id" pattern="^(?=.*[A-Z])(?=.*[0-9]).{6,6}$" minlength="6" maxlength="6" hidden>
+                                <div class="text-danger" *ngIf = '(centerId.dirty || centerId.touched) && centerId.invalid'>
+                                    <div *ngIf = 'centerId.errors.required'>
+                                        *This Field Mandatory
+                                    </div>
+
+                                    <div *ngIf = 'centerId.errors.minlength'>
+                                        *Six digit Id Must be Required
+                                    </div>
+
+                                    <div *ngIf = 'centerId.errors.pattern'>
+                                        *Only Alpha Numericals Allowed (for ex. ABC123).
+                                        Use alphabates in Upper Case Only!!! 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                    <label for="centerName">Center Name</label>
+                                    <input type="centerName" name="centerName" id="centerName" value="centerName" #centerName='ngModel' [(ngModel)] ='centerName1' class="form-control" required
+                                        placeholder="Enter The Center Name" minlength="1" maxlength="20" pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$">
+                                        <div class="text-danger" *ngIf = '(centerName.dirty || centerName.touched) && centerName.invalid'>
+                                            <div *ngIf = 'centerName.errors.required'>
+                                                *This Field Mandatory
+                                            </div>
+
+                                            <div *ngIf = 'centerName.errors.pattern'>
+                                                    *Enter Only Alphabates
+                                                </div>
+
+                                                <div *ngIf = '(centerName.errors.minlength || centerName.errors.maxlength)'>
+                                                        *Minimum length is 1 
+                                                        maximum length is 20
+                                                </div>
+
+                                                <div *ngIf = 'centerName.errors.maxlength == 20'>
+                                                        asdkasdj
+                                                    </div>
+                                        </div>
+                             </div>
+
+                             <div class="form-group">
+                                    <button type="submit" class="btn btn-primary float-right " [disabled] ='updateCenterSubmit.form.invalid' >
+                                    Update
+                                </button>
+                                </div>
+                    </form>
+             </div>
+        </div>
+    </div>
+
+
+
+    
+               

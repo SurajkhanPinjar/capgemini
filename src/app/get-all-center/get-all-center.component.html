@@ -1,0 +1,21 @@
+<input type="search" name="search" placeholder="Search Health Centers by Names" 
+class="form-control col-md-4 offset-4 mb-3" style="margin-top: 40px;" #search (keyup)='searchData(search)' >
+
+<div class="container" style="margin-left: 300px; ">
+    <div class="row">
+        <div class="card mt-2 float-left" style="width:20rem ; margin-right: 25px; " 
+        *ngFor='let center of allCenter | viewCenter: search.value'>
+            <div class="card-body">
+                <h4 class="card-title" style="color: cadetblue;">Center Details</h4>
+                <h6>Center Id : {{center.centerId}}</h6>
+                <h6>Center Name :{{center.centerName}}</h6><br><br>
+
+                <button class="btn btn-outline-info float-right btn-block " (click)= 'addTest(center)' >Add Test</button>
+                <button class="btn btn-outline-info float-right btn-block " (click)= 'getAllTest(center)'>View Tests</button>
+                <button class="btn btn-outline-success float-right btn-block" (click)= 'updateCenter(center)' >Update Center</button>
+                <button class="btn btn-outline-danger float-right btn-block"  (click)='deleteCenter(center)'>Delete</button>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-sm navbar-light " style="background-color: #3f93d8;height: 50px; ;">
+<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="sign">
+            <ul class="nav justify-content-center" style="color: aliceblue; font-size: 19px; margin-top: 5px; margin-left: 5px;">
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: aliceblue;" routerLink="/login" *ngIf='!loggedIn()'>Login</a>
+                </li>
+            </ul>
+
+            <ul class="nav justify-content-center" style="color: aliceblue; font-size: 19px; margin-top: 5px; margin-left: 5px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" style="color: aliceblue;" *ngIf='loggedIn()' (click)='logout()'>Logout</a>
+                    </li>
+                </ul>
+        </div>
+        
+</nav>
+
+
+<nav class="navbar navbar-default nav-main" style="height: 100px;">
+
+    <div class="signup">
+        <ul class="nav justify-content-center" style="font-size: 25px; margin-top: 60px; margin-left: 110px;">
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/">Health Care</a>
+            </li>
+        </ul>
+    </div>
+    <div class="a5" class="col-md-12">
+        <ul class="nav justify-content-center" style="font-size: 15px; margin-top: -50px;margin-left: -1100px;">
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/">Welcome To Health Care Poratal</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/add-center" *ngIf='loggedIn()'>Add Center</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/get-all-test" *ngIf='loggedIn()'>Get All Test</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/get-all-center" *ngIf='loggedIn()'>Get All Center</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link active" routerLink="/get-all-appointments" *ngIf='loggedIn()'>Appointments</a>
+            </li>
+        </ul>
+    </div>
+</nav>
